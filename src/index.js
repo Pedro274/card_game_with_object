@@ -19,10 +19,11 @@ const generateObject= () => {
 document.getElementById("draw").addEventListener("click", generateObject);
 
 const bubbleSort = () => {
-  let wall = arr.length - 1;
   let arr= arr_to_sort
+  let wall = arr.length - 1;
     while (wall > 0){
         let index = 0;
+        console.log(arr);
         while (index < wall) {
           if (arr[index].id > arr[index + 1].id) { 
             let aux = arr[index]; 
@@ -32,7 +33,6 @@ const bubbleSort = () => {
           index++;
         }
         wall--;
-        console.log(arr) 
     }
   return arr;
 };
