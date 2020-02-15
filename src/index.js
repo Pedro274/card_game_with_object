@@ -25,24 +25,8 @@ const generateObject = () => {
 document.getElementById("draw").addEventListener("click", generateObject);
 
 
-
-const bbSort = () => {
-  var len = arr_to_sort.length - 1;
-  for (let i = 0; i < len; i++) {
-    for (let j = 0, stop = len - i; j < stop; j++) {
-      if (arr_to_sort[j].id > arr_to_sort[j + 1].id) {
-        let aux = arr_to_sort[j];
-        arr_to_sort[j] = arr_to_sort[j + 1];
-        arr_to_sort[j + 1] = aux;
-      }
-    }
-  }
-  console.log(arr_to_sort);
-  return arr_to_sort;
-}
-
 const bubbleSort = () => {
-  const arr = [...arr_to_sort]
+  const arr = [...arr_to_sort];
   let wall = arr.length - 1;
   while (wall > 0) {
     let index = 0;
@@ -51,24 +35,44 @@ const bubbleSort = () => {
         let aux = arr[index];
         arr[index] = arr[index + 1];
         arr[index + 1] = aux;
+        let newArr = JSON.parse(JSON.stringify(arr))
+        console.log(newArr);
       }
       index++;
-      //console.log(index);
     }
     wall--;
   }
-  return arr;
+  return arr
 };
 
-const sort = () => {
-  const result = arr_to_sort.sort((a, b) => {
-    if (a.id < b.id) return -1;
-    if (a.id > b.id) return 1;
-    return 0;
-  });
+document.getElementById("sort").onclick = bubbleSort;
 
-  console.log(result);
-  return result;
-}
 
-document.getElementById("sort").onclick = bbSort;
+
+// const bbSort = () => {
+//   var len = arr_to_sort.length - 1;
+//   for (let i = 0; i < len; i++) {
+//     for (let j = 0, stop = len - i; j < stop; j++) {
+//       if (arr_to_sort[j].id > arr_to_sort[j + 1].id) {
+//         let aux = arr_to_sort[j];
+//         arr_to_sort[j] = arr_to_sort[j + 1];
+//         arr_to_sort[j + 1] = aux;
+//       }
+//     }
+//   }
+//   console.log(arr_to_sort);
+//   return arr_to_sort;
+// }
+
+
+// const sort = () => {
+//   const result = arr_to_sort.sort((a, b) => {
+//     if (a.id < b.id) return -1;
+//     if (a.id > b.id) return 1;
+//     return 0;
+//   });
+
+//   console.log(result);
+//   return result;
+// }
+
